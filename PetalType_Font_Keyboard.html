@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f7eaf2">
+<title>PetalType — Font Keyboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Cabin+Sketch:wght@400;700&family=Handlee&family=Patrick+Hand&family=Patrick+Hand+SC&family=Indie+Flower&family=Kalam:wght@300;400;700&family=Caveat:wght@400;500;600;700&family=Shadows+Into+Light&family=Amatic+SC:wght@400;700&family=Coming+Soon&family=Short+Stack&family=Itim&family=Gochi+Hand&family=Schoolbell&family=Gloria+Hallelujah&family=Just+Another+Hand&family=Homemade+Apple&family=Reenie+Beanie&family=Nanum+Pen+Script&family=Gaegu&family=Gamja+Flower&family=Single+Day&family=Poor+Story&family=Comic+Neue:wght@300;400;700&family=Quicksand:wght@300;400;500;600;700&family=Nunito:wght@300;400;600;700;800&family=Comfortaa:wght@300;400;600;700&family=DM+Serif+Display&family=Playfair+Display:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&family=Libre+Baskerville:wght@400;700&family=Sacramento&family=Parisienne&family=Great+Vibes&family=Allura&family=Pacifico&family=Lobster&family=Josefin+Sans:wght@300;400;600;700&family=Raleway:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500;700&family=Special+Elite&family=Press+Start+2P&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff8fc;--panel:#fff;--ink:#493846;--muted:#927e8d;--accent:#d98eb5;--accent2:#f4d5e5;--line:#f0dce8;--shadow:0 12px 35px #7d49601a;--radius:22px}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Nunito,system-ui,sans-serif;transition:.25s;background-image:radial-gradient(#e9b9d1 1px,transparent 1px);background-size:24px 24px}
+button,input,select,textarea{font:inherit}button{cursor:pointer;border:0}
+.app{max-width:1200px;margin:auto;padding:22px}
+header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}
+.brand{display:flex;align-items:center;gap:12px}.logo{width:48px;height:48px;border-radius:16px;background:var(--accent2);display:grid;place-items:center;font-size:25px}.brand h1{font-family:"DM Serif Display",serif;font-size:27px;margin:0}.brand p{margin:1px 0 0;color:var(--muted);font-size:12px;letter-spacing:.08em}
+.pill{background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:9px 14px;color:var(--ink);font-size:12px}
+.layout{display:grid;grid-template-columns:300px 1fr;gap:18px}.panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px;min-width:0}
+h2{font-size:15px;margin:0 0 12px}.section{margin-bottom:20px}.hint{color:var(--muted);font-size:12px;line-height:1.5}
+.search{width:100%;border:1px solid var(--line);background:var(--bg);border-radius:12px;padding:10px 12px;color:var(--ink);outline:none}
+.font-list{display:grid;gap:7px;max-height:360px;overflow:auto;padding:2px}
+.font-option{display:flex;justify-content:space-between;align-items:center;gap:8px;background:var(--bg);border:1px solid transparent;border-radius:12px;padding:9px 11px;color:var(--ink);text-align:left}
+.font-option.active{border-color:var(--accent);background:var(--accent2)}.font-option small{font-family:Nunito,sans-serif;color:var(--muted);font-size:10px}
+.theme-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}.swatch{height:42px;border-radius:12px;border:2px solid #ffffff;box-shadow:0 0 0 1px var(--line);position:relative}.swatch.active{outline:2px solid var(--accent);outline-offset:2px}.swatch span{position:absolute;inset:auto 0 3px;text-align:center;font-size:9px;color:#594451;text-shadow:0 1px 4px white}
+main{display:grid;gap:18px}.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.control{border:1px solid var(--line);background:var(--bg);border-radius:11px;padding:9px 11px;color:var(--ink)}.control.primary{background:var(--accent);color:white;border-color:var(--accent)}.control:active{transform:translateY(1px)}
+textarea#editor{width:100%;min-height:270px;resize:vertical;border:1px solid var(--line);border-radius:17px;background:var(--bg);padding:20px;color:var(--ink);font-size:25px;line-height:1.55;outline:none;transition:.2s}
+.clip-list{display:grid;gap:8px}.clip-item{display:flex;align-items:flex-start;gap:8px;background:var(--bg);border:1px solid var(--line);border-radius:13px;padding:10px}.clip-text{flex:1;min-width:0;white-space:pre-wrap;overflow-wrap:anywhere;font-size:13px;max-height:72px;overflow:hidden}.clip-actions{display:flex;gap:5px;flex-wrap:wrap}.clip-actions button{background:var(--accent2);color:var(--ink);border-radius:8px;padding:6px 8px;font-size:11px}.clip-empty{padding:14px;text-align:center;border:1px dashed var(--line);border-radius:13px;color:var(--muted);font-size:12px}.clip-head{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}.preview{min-height:90px;padding:18px;border-radius:16px;background:var(--bg);border:1px dashed var(--accent);font-size:26px;line-height:1.5;overflow-wrap:anywhere;white-space:pre-wrap}
+.meta{display:flex;justify-content:space-between;gap:10px;color:var(--muted);font-size:12px;margin-top:8px}
+.keyboard{display:grid;gap:7px;user-select:none}.keyrow{display:flex;justify-content:center;gap:6px}.key{flex:1;max-width:58px;min-height:43px;border-radius:10px;background:var(--bg);border:1px solid var(--line);box-shadow:0 3px 0 var(--line);color:var(--ink);font-weight:700}.key.wide{max-width:110px;flex:1.7}.key.space{max-width:none;flex:5}.key:active{transform:translateY(2px);box-shadow:none;background:var(--accent2)}
+footer{text-align:center;color:var(--muted);font-size:11px;padding:12px}
+@media(max-width:800px){.layout{grid-template-columns:1fr}.font-list{max-height:220px}.app{padding:13px}.brand h1{font-size:23px}.panel{padding:15px}textarea#editor{min-height:220px;font-size:22px}}
+</style>
+</head>
+<body>
+<div class="app">
+<header><div class="brand"><div class="logo">✿</div><div><h1>PetalType</h1><p>A LITTLE KEYBOARD FULL OF FONTS</p></div></div><button class="pill" id="reset">↺ Reset page</button></header>
+<div class="layout">
+<aside class="panel">
+  <div class="section"><h2>♡ Choose a font</h2><input class="search" id="fontSearch" placeholder="Search fonts..." autocomplete="off"><p class="hint">Tap a font to type in that style.</p><div class="font-list" id="fontList"></div></div>
+  <div class="section"><h2>✧ Pick a theme</h2><div class="theme-grid" id="themeGrid"></div><p class="hint" id="themeName">Blush Garden</p></div>
+</aside>
+<main>
+ <section class="panel">
+  <h2>✎ Your typing space</h2>
+  <div class="toolbar">
+   <select class="control" id="fontSize" aria-label="Font size"><option value="18">Small</option><option value="22" selected>Medium</option><option value="28">Large</option><option value="36">Extra large</option><option value="48">Huge</option></select>
+   <button class="control" id="bold">B Bold</button><button class="control" id="italic"><i>I Italic</i></button>
+   <button class="control" id="clear">Clear</button><button class="control primary" id="copy">Copy text</button><button class="control" id="download">Save as .txt</button>
+  </div>
+  <textarea id="editor" spellcheck="true" placeholder="Start typing something lovely..."></textarea>
+  <div class="meta"><span id="fontLabel">Font: Handlee</span><span id="counts">0 words · 0 characters</span></div>
+ </section>
+ <section class="panel">
+  <div class="clip-head"><h2>▤ Clipboard</h2><div class="toolbar"><button class="control" id="pasteSystem">Paste from phone</button><button class="control" id="clearClips">Clear history</button></div></div>
+  <p class="hint">Like Gboard: recent copied snippets stay here. Tap Paste to insert one at your cursor, or pin your favourites.</p>
+  <div class="clip-list" id="clipList"><div class="clip-empty">Your copied text will appear here.</div></div>
+ </section>
+ <section class="panel"><h2>♡ Live font preview</h2><div class="preview" id="preview">Your words will appear here...</div></section>
+ <section class="panel"><h2>⌨ Little on-screen keyboard</h2><p class="hint">Tap the keys to add letters wherever your cursor is.</p><div class="keyboard" id="keyboard"></div></section>
+</main>
+</div>
+<footer>PetalType · Your words, your font, your little world.</footer>
+</div>
+<script>
+const fonts=[
+["Handlee","Handwritten"],["Cabin Sketch","Sketch"],["Patrick Hand","Handwritten"],["Architects Daughter","Handwritten"],["Indie Flower","Handwritten"],["Kalam","Handwritten"],["Caveat","Handwritten"],["Shadows Into Light","Handwritten"],["Amatic SC","Handwritten"],["Coming Soon","Handwritten"],["Short Stack","Handwritten"],["Itim","Handwritten"],["Gochi Hand","Handwritten"],["Schoolbell","Handwritten"],["Gloria Hallelujah","Handwritten"],["Just Another Hand","Handwritten"],["Homemade Apple","Handwritten"],["Reenie Beanie","Handwritten"],["Nanum Pen Script","Handwritten"],["Gaegu","Handwritten"],["Gamja Flower","Handwritten"],["Single Day","Handwritten"],["Poor Story","Handwritten"],["Comic Neue","Playful"],["Quicksand","Rounded"],["Nunito","Rounded"],["Comfortaa","Rounded"],["DM Serif Display","Elegant"],["Playfair Display","Elegant"],["Cormorant Garamond","Elegant"],["Libre Baskerville","Elegant"],["Sacramento","Script"],["Parisienne","Script"],["Great Vibes","Script"],["Allura","Script"],["Pacifico","Playful"],["Lobster","Playful"],["Josefin Sans","Clean"],["Raleway","Clean"],["Montserrat","Clean"],["Roboto Mono","Typewriter"],["Special Elite","Typewriter"],["Press Start 2P","Pixel"],["Patrick Hand SC","Handwritten"]
+];
+const themes=[
+["Blush Garden","#fff8fc","#493846","#d98eb5","#f4d5e5","#f0dce8"],["Lavender Dream","#faf7ff","#493b60","#a991d4","#e9ddfb","#e8ddf4"],["Sakura Milk","#fff7f7","#573b42","#e99eaa","#f9dce0","#f2dadd"],["Blueberry Sky","#f4f9ff","#344a65","#86afd9","#dcecff","#d9e6f5"],["Mint Macaron","#f4fff9","#355449","#79b99a","#d8f1e3","#d8eee2"],["Buttercream","#fffdf2","#665334","#d8b45e","#f7edc9","#eee5c9"],["Peach Sorbet","#fff8f3","#67483f","#e9a17f","#f9dfd1","#f1dfd5"],["Rose Vintage","#fff7f8","#5b3948","#b97891","#efd4df","#ecd9e0"],["Midnight Plum","#211927","#f5eafa","#c28acb","#45304f","#493b50"],["Dark Academia","#282521","#f1e8d7","#bd9b65","#494034","#50483b"],["Moonlight","#202a3b","#eef3ff","#8ea9d6","#394963","#45536a"],["Forest Fairy","#172c26","#edf8e9","#8dbb8d","#2c493b","#3b5445"],["Cherry Soda","#fff4f5","#642b3b","#e56b86","#f8d0d8","#efd4dc"],["Ocean Glass","#effcff","#284c5b","#66b9c9","#d2f0f4","#d8eaee"],["Lilac Haze","#f8f5ff","#55476e","#b8a2e1","#e8defb","#e8dff2"],["Strawberry Milk","#fff6fa","#6b3c55","#ed8fb8","#f8d5e6","#f1dbe7"],["Cocoa Café","#f8f1e9","#4e382d","#b98a68","#e9d8c7","#e7d9ce"],["Sage Journal","#f5f7ef","#46513b","#9ba77c","#e1e7d2","#e2e5d8"],["Pistachio","#f8fff0","#4c5a35","#a5c77b","#e4f0ce","#e3ebd4"],["Cotton Candy","#fff7ff","#563c63","#d39edc","#f2dcf5","#efddf0"],["Golden Hour","#fff8ed","#61452b","#d7a45e","#f5e3c2","#eee1ce"],["Rainy Day","#f3f6fa","#394657","#8c9caf","#dfe6ef","#dce2e9"],["Ink & Paper","#f5f1e8","#27231e","#81735d","#e6dece","#ded8cb"],["Neon Pop","#171626","#f8f4ff","#ef78ce","#37304e","#4a3a5b"],["Peony","#fff8f5","#65424d","#d88fa4","#f4dce1","#f0dce0"],["Cloud Nine","#fbfdff","#455269","#aabbd9","#e7eef9","#e5eaf2"],["Blue Porcelain","#f4f8fc","#2f4863","#7397bc","#dce8f3","#d7e2ed"],["Carnation","#fff7f5","#653e3a","#df9a8b","#f4ded8","#efdbd5"],["Mauve Mist","#faf6f8","#594451","#b18b9e","#ecdee5","#eadde3"],["Citrus Garden","#fbfff1","#4c5634","#b4c76a","#edf2ce","#e4e9d1"],["Gothic Rose","#211b24","#f5e9ef","#c17a9a","#49313f","#4b3c49"],["Vanilla Bean","#fffaf0","#5b4a35","#c8a878","#f1e5cf","#ede2d0"]
+];
+let activeFont="Handlee",activeTheme=0,boldOn=false,italicOn=false;
+const $=id=>document.getElementById(id), editor=$("editor");
+function renderFonts(filter=""){const list=$("fontList");list.innerHTML="";fonts.filter(f=>f[0].toLowerCase().includes(filter.toLowerCase())||f[1].toLowerCase().includes(filter.toLowerCase())).forEach(f=>{const b=document.createElement("button");b.className="font-option"+(f[0]===activeFont?" active":"");b.innerHTML=`<span style="font-family:'${f[0]}'">${f[0]}</span><small>${f[1]}</small>`;b.onclick=()=>{activeFont=f[0];applyFont();renderFonts($("fontSearch").value)};list.appendChild(b)})}
+function applyFont(){editor.style.fontFamily=`'${activeFont}', sans-serif`;editor.style.fontWeight=boldOn?"700":"400";editor.style.fontStyle=italicOn?"italic":"normal";$("preview").style.fontFamily=`'${activeFont}', sans-serif`;$("preview").style.fontWeight=boldOn?"700":"400";$("preview").style.fontStyle=italicOn?"italic":"normal";$("fontLabel").textContent="Font: "+activeFont}
+function applyTheme(i){activeTheme=i;const t=themes[i],r=document.documentElement;r.style.setProperty("--bg",t[1]);r.style.setProperty("--ink",t[2]);r.style.setProperty("--accent",t[3]);r.style.setProperty("--accent2",t[4]);r.style.setProperty("--line",t[5]);$("themeName").textContent=t[0];[...$("themeGrid").children].forEach((e,n)=>e.classList.toggle("active",n===i))}
+function renderThemes(){themes.forEach((t,i)=>{const b=document.createElement("button");b.className="swatch";b.style.background=`linear-gradient(135deg,${t[1]} 50%,${t[4]} 50%)`;b.title=t[0];b.innerHTML=`<span>${i+1}</span>`;b.onclick=()=>applyTheme(i);$("themeGrid").appendChild(b)})}
+const CLIP_KEY="petaltype_clipboard_v1";
+let clips=[];
+try{clips=JSON.parse(localStorage.getItem(CLIP_KEY)||"[]");if(!Array.isArray(clips))clips=[]}catch(e){clips=[]}
+function saveClips(){try{localStorage.setItem(CLIP_KEY,JSON.stringify(clips))}catch(e){}}
+function addClip(text){text=String(text||"").trim();if(!text)return;clips=clips.filter(c=>c.text!==text);clips.unshift({text,pinned:false,at:Date.now()});clips=clips.slice(0,30);saveClips();renderClips()}
+function renderClips(){const list=$("clipList");list.innerHTML="";if(!clips.length){list.innerHTML='<div class="clip-empty">Your copied text will appear here.</div>';return}const sorted=[...clips.filter(c=>c.pinned),...clips.filter(c=>!c.pinned)];sorted.forEach(c=>{const item=document.createElement("div");item.className="clip-item";const txt=document.createElement("div");txt.className="clip-text";txt.textContent=c.text;const actions=document.createElement("div");actions.className="clip-actions";const paste=document.createElement("button");paste.textContent="Paste";paste.onclick=()=>insertText(c.text);const pin=document.createElement("button");pin.textContent=c.pinned?"Unpin":"Pin";pin.onclick=()=>{c.pinned=!c.pinned;saveClips();renderClips()};const del=document.createElement("button");del.textContent="✕";del.title="Delete clip";del.onclick=()=>{clips=clips.filter(x=>x!==c);saveClips();renderClips()};actions.append(paste,pin,del);item.append(txt,actions);list.appendChild(item)})}
+function update(){const v=editor.value;$("preview").textContent=v||"Your words will appear here...";const words=v.trim()?v.trim().split(/\s+/).length:0;$("counts").textContent=`${words} words · ${v.length} characters`}
+function insertText(s){const a=editor.selectionStart,b=editor.selectionEnd;editor.setRangeText(s,a,b,"end");editor.focus();update()}
+$("fontSearch").addEventListener("input",e=>renderFonts(e.target.value));editor.addEventListener("input",update);
+$("fontSize").onchange=e=>editor.style.fontSize=e.target.value+"px";
+$("bold").onclick=()=>{boldOn=!boldOn;$("bold").classList.toggle("primary",boldOn);applyFont()};
+$("italic").onclick=()=>{italicOn=!italicOn;$("italic").classList.toggle("primary",italicOn);applyFont()};
+$("clear").onclick=()=>{editor.value="";update();editor.focus()};
+$("copy").onclick=async()=>{if(!editor.value.trim())return;addClip(editor.value);try{await navigator.clipboard.writeText(editor.value);$("copy").textContent="Copied!";setTimeout(()=>$("copy").textContent="Copy text",1300)}catch(e){editor.select();document.execCommand("copy");$("copy").textContent="Copied!"}};
+$("pasteSystem").onclick=async()=>{try{const t=await navigator.clipboard.readText();if(t){addClip(t);insertText(t)}else alert("Your phone clipboard is empty.")}catch(e){alert("Your browser did not allow clipboard access. Copy text on your phone, then use Paste from phone again, or use the clipboard history here.")}};
+$("clearClips").onclick=()=>{if(confirm("Clear all unpinned and pinned clipboard items?")){clips=[];saveClips();renderClips()}};
+editor.addEventListener("copy",()=>{const a=editor.selectionStart,b=editor.selectionEnd;if(a!==b)addClip(editor.value.slice(a,b))});
+$("download").onclick=()=>{const blob=new Blob([editor.value],{type:"text/plain;charset=utf-8"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="my-petaltype-writing.txt";a.click();URL.revokeObjectURL(a.href)};
+$("reset").onclick=()=>{editor.value="";$("fontSearch").value="";activeFont="Handlee";boldOn=false;italicOn=false;applyFont();renderFonts();$("fontSize").value="22";editor.style.fontSize="22px";applyTheme(0);update()};
+const rows=["1234567890","qwertyuiop","asdfghjkl","zxcvbnm"];
+rows.forEach((r,idx)=>{const row=document.createElement("div");row.className="keyrow";[...r].forEach(ch=>{const b=document.createElement("button");b.className="key";b.textContent=idx===0?ch:ch.toUpperCase();b.onclick=()=>insertText(ch);row.appendChild(b)});$("keyboard").appendChild(row)});
+const last=document.createElement("div");last.className="keyrow";[["⇧","shift"],["Space","space"],["⌫","back"]].forEach(([label,kind])=>{const b=document.createElement("button");b.className="key "+(kind==="space"?"space":"wide");b.textContent=label;b.onclick=()=>{if(kind==="space")insertText(" ");else if(kind==="back"){const a=editor.selectionStart,b=editor.selectionEnd;if(a!==b)editor.setRangeText("",a,b,"end");else if(a>0)editor.setRangeText("",a-1,a,"end");editor.focus();update()}else{insertText("⇧")}};last.appendChild(b)});$("keyboard").appendChild(last);
+renderFonts();renderThemes();applyTheme(0);applyFont();renderClips();update();
+</script>
+</body></html>
